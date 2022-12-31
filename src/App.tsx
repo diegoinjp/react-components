@@ -37,12 +37,12 @@ function App() {
   const buttons1: ButtonType[] = [
     ...buttons,
     {
-      label: 'Modal1',
+      label: 'M1',
       btnColor: 'yellow',
       onClick: open,
     },
     {
-      label: 'Modal2',
+      label: 'M2',
       btnColor: 'paper',
       onClick: open2,
     },
@@ -67,7 +67,7 @@ function App() {
 
   return (
     <main className="flex justify-center w-full">
-      <div className="border w-11/12 lg:w-[60rem] p-5 flex flex-col gap-3">
+      <div className="border w-11/12 lg:w-[60rem] md:p-5 flex flex-col gap-3">
         <Carousel posts={postsContent} duration={5} />
         <Panel title={`Total: ${count}`} buttons={buttons1}>
           <div className="flex flex-col gap-3">
