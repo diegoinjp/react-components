@@ -1,6 +1,7 @@
 import React from 'react';
 import { PlaceholderText } from '../utils/consts';
 import { PostProps } from '../utils/types';
+import Tags from './Tags';
 
 const Card = ({
   children = PlaceholderText,
@@ -8,6 +9,7 @@ const Card = ({
   title,
   badge = '',
   imgUrl,
+  tags = [],
 }: PostProps) => {
   const contentClass = `${title ? 'h-48' : 'h-56'} overflow-y-scroll`;
 
@@ -29,6 +31,7 @@ const Card = ({
           </div>
         )}
         <div className={contentClass}>{children}</div>
+        {tags.length > 0 && <Tags tags={tags} />}
       </div>
     </div>
   );

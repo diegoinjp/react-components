@@ -12,9 +12,9 @@ export type PostProps = {
   p?: number;
   title?: string;
   badge?: string;
+  tags?: string[];
   imgUrl?: string;
 };
-
 // export type CardTypes = {
 //   title:
 //   content:

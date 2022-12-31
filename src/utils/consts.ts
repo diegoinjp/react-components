@@ -11,6 +11,15 @@ export const BtnSizes: { [key: string]: string } = {
   lg: 'px-5 py-3',
 };
 
+export const tagsColor: { [key: number]: string } = {
+  1: 'bg-red-400',
+  2: 'bg-yellow-300',
+  3: 'bg-cyan-400',
+  4: 'bg-orange-400',
+  5: 'bg-blue-300',
+  6: 'bg-violet-300',
+};
+
 export const NoChildrenText = 'No children';
 
 export const PlaceholderText =
