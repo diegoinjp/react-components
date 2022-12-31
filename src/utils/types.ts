@@ -6,6 +6,15 @@ export interface ButtonType {
   onClick: (arg: unknown) => void;
 }
 
+export type PostProps = {
+  children?: React.ReactNode;
+  href?: string;
+  p?: number;
+  title?: string;
+  badge?: string;
+  imgUrl?: string;
+};
+
 // export type CardTypes = {
 //   title:
 //   content:

@@ -1,26 +1,18 @@
 import React from 'react';
 import { PlaceholderText } from '../utils/consts';
-
-export type CardProps = {
-  children?: React.ReactNode;
-  href?: string;
-  p?: number;
-  title?: string;
-  badge?: string;
-  imgUrl?: string;
-};
+import { PostProps } from '../utils/types';
 
 const Card = ({
   children = PlaceholderText,
   p = 2,
   title,
-  badge = 'badge',
+  badge = '',
   imgUrl,
-}: CardProps) => {
+}: PostProps) => {
   const contentClass = `${title ? 'h-48' : 'h-56'} overflow-y-scroll`;
 
   return (
-    <div className="h-[30rem] relative transition group hover:-translate-y-0.5 hover:bg-gray-100 max-w-xs drop-shadow-sm bg-gray-50 overflow-hidden rounded-md">
+    <div className="h-[30rem] relative transition group hover:-translate-y-0.5 hover:bg-gray-100 auto-cols-min drop-shadow-sm bg-gray-50 overflow-hidden rounded-md">
       {imgUrl && (
         <img
           className="w-full h-48 object-cover opacity-60 group-hover:opacity-100"

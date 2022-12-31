@@ -5,7 +5,8 @@ import Tooltip from './components/Tooltip';
 import { PlaceholderText } from './utils/consts';
 import { ButtonType } from './utils/types';
 import Card from './components/Card';
-import { cardsContent } from './api/cards';
+import { postsContent } from './api/posts';
+import Carousel from './components/Carousel';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,12 +22,12 @@ function App() {
 
   const buttons: ButtonType[] = [
     {
-      label: 'Decrement',
+      label: '-',
       btnColor: 'primary',
       onClick: decrement,
     },
     {
-      label: 'Increment',
+      label: '+',
       btnColor: 'secondary',
       onClick: increment,
     },
@@ -35,12 +36,12 @@ function App() {
   const buttons1: ButtonType[] = [
     ...buttons,
     {
-      label: 'Open Model',
+      label: 'Modal1',
       btnColor: 'yellow',
       onClick: open,
     },
     {
-      label: 'Open Modal 2',
+      label: 'Modal2',
       btnColor: 'paper',
       onClick: open2,
     },
@@ -66,9 +67,10 @@ function App() {
   return (
     <main className="flex justify-center w-full">
       <div className="border w-11/12 lg:w-[60rem] p-5 flex flex-col gap-3">
+        <Carousel posts={postsContent} />
         <Panel title={`Total: ${count}`} buttons={buttons1}></Panel>
-        <div className="grid grid-cols-3 gap-3">
-          {cardsContent.map((card, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {postsContent.map((card, index) => {
             return (
               <Card
                 key={index}

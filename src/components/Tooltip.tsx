@@ -11,7 +11,7 @@ const Tooltip = ({
   content = NoChildrenText,
 }: TooltipProps) => {
   const [show, setShow] = useState(false);
-  const tooltipClass = `inline-block absolute top-7 p-2 bg-gray-300 border rounded transition z-40 ${
+  const tooltipClass = `inline-block absolute top-7 p-1 bg-gray-300 border rounded transition z-40 ${
     show ? 'opacity-100' : 'opacity-0'
   }`;
 

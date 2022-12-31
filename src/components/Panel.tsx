@@ -25,8 +25,8 @@ const Panel = ({
       <div className="flex gap-2 absolute top-4 right-4">
         {buttons.map((button, index) => (
           <Button
-            color={button.btnColor}
             key={index}
+            color={button.btnColor}
             onClick={button.onClick}
             size="sm">
             {button.label}
