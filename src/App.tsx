@@ -7,6 +7,7 @@ import { ButtonType } from './utils/types';
 import Card from './components/Card';
 import { postsContent } from './api/posts';
 import Carousel from './components/Carousel';
+import Tags from './components/Tags';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -67,8 +68,13 @@ function App() {
   return (
     <main className="flex justify-center w-full">
       <div className="border w-11/12 lg:w-[60rem] p-5 flex flex-col gap-3">
-        <Carousel posts={postsContent} />
-        <Panel title={`Total: ${count}`} buttons={buttons1}></Panel>
+        <Carousel posts={postsContent} duration={5} />
+        <Panel title={`Total: ${count}`} buttons={buttons1}>
+          <div className="flex flex-col gap-3">
+            {PlaceholderText}
+            <Tags tags={postsContent[1].tags} url={postsContent[1].imgUrl} />
+          </div>
+        </Panel>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {postsContent.map((card, index) => {
             return (
@@ -76,6 +82,7 @@ function App() {
                 key={index}
                 title={card.title}
                 imgUrl={card.imgUrl}
+                // tags={card.tags}
                 badge={card.badge}>
                 {card.children}
               </Card>
