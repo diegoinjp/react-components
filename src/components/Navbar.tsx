@@ -1,18 +1,18 @@
 import React from 'react';
 import { BgColor, BgHoverColor } from '../utils/consts';
-import { ColorType, MenuType } from '../utils/types';
+import { ColorBgType, MenuType } from '../utils/types';
 
 export type NavbarProps = {
   title?: string;
   p?: number;
-  color?: ColorType;
+  color?: ColorBgType;
   menuLinks?: MenuType[];
 };
 
 const Navbar = ({
   title = 'Title',
   p = 16,
-  color = 'secondary',
+  color = 'red',
   menuLinks = [],
 }: NavbarProps) => {
   return (

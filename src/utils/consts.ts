@@ -1,21 +1,23 @@
 export const BtnColor: { [key: string]: string } = {
-  primary: 'bg-red-500 hover:bg-red-600 hover:text-white',
+  primary: 'bg-red-500 hover:bg-red-600 text-white',
   secondary: 'bg-blue-400 hover:bg-blue-500 hover:text-white',
   paper: 'bg-gray-400 text-black hover:bg-gray-500 hover:text-white',
   yellow: 'bg-yellow-300 text-black hover:bg-yellow-400',
 };
 
 export const BgColor: { [key: string]: string } = {
-  primary: 'bg-red-400',
-  secondary: 'bg-yellow-300',
-  paper: 'bg-cyan-400',
-  yellow: 'bg-orange-400',
+  red: 'bg-red-600 text-white',
+  cyan: 'bg-cyan-400',
+  violet: 'bg-violet-600 text-white',
+  orange: 'bg-orange-400',
+  yellow: 'bg-yellow-300',
 };
 export const BgHoverColor: { [key: string]: string } = {
-  primary: 'hover:bg-red-200',
-  secondary: 'hover:bg-yellow-200',
-  paper: 'hover:bg-cyan-200',
-  yellow: 'hover:bg-orange-200',
+  red: 'hover:bg-red-500 text-white',
+  cyan: 'hover:bg-cyan-300',
+  violet: 'hover:bg-violet-500 text-white',
+  orange: 'hover:bg-orange-300',
+  yellow: 'hover:bg-yellow-200',
 };
 
 export const BtnSizes: { [key: string]: string } = {

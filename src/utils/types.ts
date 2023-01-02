@@ -1,4 +1,5 @@
 export type ColorType = 'primary' | 'secondary' | 'paper' | 'yellow';
+export type ColorBgType = 'red' | 'cyan' | 'violet' | 'orange' | 'yellow';
 
 export interface ButtonType {
   children: string;

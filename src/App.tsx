@@ -87,8 +87,8 @@ function App() {
 
   return (
     <main className="flex justify-center w-full">
-      <div className="border w-11/12 lg:w-[60rem] ">
-        <Navbar menuLinks={menuLinks} />
+      <div className=" md:w-11/12 lg:w-[60rem] ">
+        <Navbar menuLinks={menuLinks} color="red" />
         <div className="flex flex-col gap-3">
           <Carousel posts={postsContent} />
           <Panel
