@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from './components/Modal';
 import Panel from './components/Panel';
 import Tooltip from './components/Tooltip';
-import { PlaceholderText } from './utils/consts';
+import { PLACEHOLDERTEXT } from './utils/consts';
 import { ButtonType, MenuType } from './utils/types';
 import Card from './components/Card';
 import { postsContent } from './api/posts';
@@ -91,11 +91,15 @@ function App() {
         <Navbar menuLinks={menuLinks} />
         <div className="flex flex-col gap-3">
           <Carousel posts={postsContent} />
-          <Panel title={`Total: ${count}`} buttons={buttons1}>
-            <div className="flex flex-col gap-3">
-              {PlaceholderText}
-              <Button icon={<BsDownload />}>Download</Button>
+          <Panel
+            title={`Total: ${count}`}
+            buttons={buttons1}
+            tags={
               <Tags tags={postsContent[1].tags} url={postsContent[1].imgUrl} />
+            }>
+            <div className="flex flex-col gap-3">
+              {PLACEHOLDERTEXT}
+              <Button icon={<BsDownload />}>Download</Button>
             </div>
           </Panel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -120,8 +124,8 @@ function App() {
         title={`${count} Title`}
         buttons={buttonsModal1}>
         <Tooltip content="holahola">tooltip</Tooltip>
-        {PlaceholderText}
-        {PlaceholderText}
+        {PLACEHOLDERTEXT}
+        {PLACEHOLDERTEXT}
       </Modal>
       <Modal
         open={openModal2}

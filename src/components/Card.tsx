@@ -1,10 +1,10 @@
 import React from 'react';
-import { PlaceholderText } from '../utils/consts';
+import { PLACEHOLDERTEXT } from '../utils/consts';
 import { PostProps } from '../utils/types';
 import Tags from './Tags';
 
 const Card = ({
-  children = PlaceholderText,
+  children = PLACEHOLDERTEXT,
   p = 2,
   title,
   badge = '',

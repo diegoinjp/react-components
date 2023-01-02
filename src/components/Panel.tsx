@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlaceholderText } from '../utils/consts';
+import { PLACEHOLDERTEXT } from '../utils/consts';
 import Button, { ButtonProps } from './Button';
 
 export type PanelProps = {
@@ -8,16 +8,19 @@ export type PanelProps = {
   height?: number;
   title?: string;
   buttons?: ButtonProps[];
+  tags?: React.ReactNode;
 };
 
 const Panel = ({
-  children = PlaceholderText,
+  children = PLACEHOLDERTEXT,
   p = 2,
-  height,
+  height = 14,
   title,
   buttons = [],
+  tags,
 }: PanelProps) => {
-  const hasMargin = buttons.length > 0 && !title ? 'mt-5' : '';
+  const hasTopMargin = buttons.length > 0 && !title ? 'mt-5' : '';
+  const hasBottomMargin = tags ? 'mb-7' : '';
 
   return (
     <div
@@ -36,9 +39,12 @@ const Panel = ({
         ))}
       </div>
       <div className="uppercase font-bold text-xl">{title}</div>
-      <div style={{ maxHeight: `${height}rem` }} className={hasMargin}>
+      <div
+        style={{ maxHeight: `${height}rem` }}
+        className={`overflow-y-scroll ${hasTopMargin} ${hasBottomMargin}`}>
         {children}
       </div>
+      <div className="absolute bottom-4 left-6">{tags}</div>
     </div>
   );
 };

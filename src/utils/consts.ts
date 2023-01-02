@@ -35,7 +35,10 @@ export const tagsColor: { [key: number]: string } = {
 
 export const NoChildrenText = 'No children';
 
-export const PlaceholderText =
+export const SHORTPLANCEHOLDER =
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor adipisci earum autem optio ipsam culpa ratione eveniet delectus ab vero, temporibus accusantium impedit totam, sint dolores corrupti vitae numquam voluptas?';
+
+export const PLACEHOLDERTEXT =
   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed officia maiores vel eligendi aperiam eum consectetur. Inventore aliquam dolorem pariatur, adipisci veniam praesentium quidem sed corrupti, itaque necessitatibus amet laborum libero doloribus temporibus facere tempore harum dolores vel culpa quod. Quisquam, quam vero voluptatibus vitae ratione, est nulla delectus assumenda dicta sit rem ipsum nihil illum? Incidunt dolor non vitae commodi distinctio perferendis enim. Perspiciatis exercitationem nam unde vero explicabo quisquam ut asperiores perferendis quae velit tenetur illum aut sit nihil, cum minus dolore, maxime blanditiis, alias impedit nisi saepe sequi eaque! Perferendis, quasi sed soluta similique eveniet ipsa ratione.';
 
 export const imgUrls = [
