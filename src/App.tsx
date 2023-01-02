@@ -102,7 +102,7 @@ function App() {
               <Button icon={<BsDownload />}>Download</Button>
             </div>
           </Panel>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 px-4 md:px-0">
             {postsContent.map((card, index) => {
               return (
                 <Card
