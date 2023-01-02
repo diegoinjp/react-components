@@ -14,6 +14,9 @@ export type CarouselProps = {
   slideNumber?: number;
 };
 
+// TODO: onMouseEnter and onMouseLeave should stop the carousel
+// TODO: create arrows
+
 const Carousel = ({
   posts,
   height = 20,

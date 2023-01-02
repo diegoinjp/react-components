@@ -3,16 +3,21 @@ import Modal from './components/Modal';
 import Panel from './components/Panel';
 import Tooltip from './components/Tooltip';
 import { PlaceholderText } from './utils/consts';
-import { ButtonType } from './utils/types';
+import { ButtonType, MenuType } from './utils/types';
 import Card from './components/Card';
 import { postsContent } from './api/posts';
 import Carousel from './components/Carousel';
 import Tags from './components/Tags';
+import Button from './components/Button';
+import { BsDownload } from 'react-icons/bs';
+import Navbar from './components/Navbar';
+import useCountRenders from './hooks/useCountRenders';
 
 function App() {
   const [count, setCount] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
+  useCountRenders();
 
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
@@ -23,13 +28,13 @@ function App() {
 
   const buttons: ButtonType[] = [
     {
-      label: '-',
-      btnColor: 'primary',
+      children: '-',
+      color: 'primary',
       onClick: decrement,
     },
     {
-      label: '+',
-      btnColor: 'secondary',
+      children: '+',
+      color: 'secondary',
       onClick: increment,
     },
   ];
@@ -37,64 +42,83 @@ function App() {
   const buttons1: ButtonType[] = [
     ...buttons,
     {
-      label: 'M1',
-      btnColor: 'yellow',
+      children: 'M1',
+      color: 'yellow',
       onClick: open,
     },
     {
-      label: 'M2',
-      btnColor: 'paper',
+      children: 'M2',
+      color: 'paper',
       onClick: open2,
     },
   ];
 
-  const buttons2: ButtonType[] = [
+  const buttonsModal1: ButtonType[] = [
     ...buttons,
     {
-      label: 'OK',
-      btnColor: 'yellow',
+      children: 'OK',
+      color: 'yellow',
       onClick: close,
     },
   ];
 
-  const buttons3: ButtonType[] = [
+  const buttonsModal2: ButtonType[] = [
     {
-      label: 'OK',
-      btnColor: 'secondary',
+      children: 'OK',
+      color: 'secondary',
       onClick: close2,
+    },
+  ];
+
+  const menuLinks: MenuType[] = [
+    {
+      label: 'Link 1',
+      url: '/',
+    },
+    {
+      label: 'Link 2',
+      url: '/foo',
+    },
+    {
+      label: 'Link 3',
+      url: '/bar',
     },
   ];
 
   return (
     <main className="flex justify-center w-full">
-      <div className="border w-11/12 lg:w-[60rem] md:p-5 flex flex-col gap-3">
-        <Carousel posts={postsContent} duration={5} />
-        <Panel title={`Total: ${count}`} buttons={buttons1}>
-          <div className="flex flex-col gap-3">
-            {PlaceholderText}
-            <Tags tags={postsContent[1].tags} url={postsContent[1].imgUrl} />
+      <div className="border w-11/12 lg:w-[60rem] ">
+        <Navbar menuLinks={menuLinks} />
+        <div className="flex flex-col gap-3">
+          <Carousel posts={postsContent} />
+          <Panel title={`Total: ${count}`} buttons={buttons1}>
+            <div className="flex flex-col gap-3">
+              {PlaceholderText}
+              <Button icon={<BsDownload />}>Download</Button>
+              <Tags tags={postsContent[1].tags} url={postsContent[1].imgUrl} />
+            </div>
+          </Panel>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {postsContent.map((card, index) => {
+              return (
+                <Card
+                  key={index}
+                  title={card.title}
+                  imgUrl={card.imgUrl}
+                  // tags={card.tags}
+                  badge={card.badge}>
+                  {card.children}
+                </Card>
+              );
+            })}
           </div>
-        </Panel>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {postsContent.map((card, index) => {
-            return (
-              <Card
-                key={index}
-                title={card.title}
-                imgUrl={card.imgUrl}
-                // tags={card.tags}
-                badge={card.badge}>
-                {card.children}
-              </Card>
-            );
-          })}
         </div>
       </div>
       <Modal
         open={openModal}
         setOpen={setOpenModal}
         title={`${count} Title`}
-        buttons={buttons2}>
+        buttons={buttonsModal1}>
         <Tooltip content="holahola">tooltip</Tooltip>
         {PlaceholderText}
         {PlaceholderText}
@@ -103,7 +127,7 @@ function App() {
         open={openModal2}
         setOpen={setOpenModal2}
         title={`${count} Title`}
-        buttons={buttons3}
+        buttons={buttonsModal2}
       />
     </main>
   );

@@ -1,9 +1,15 @@
 export type ColorType = 'primary' | 'secondary' | 'paper' | 'yellow';
 
 export interface ButtonType {
-  label: string;
-  btnColor: ColorType;
+  children: string;
+  color: ColorType;
   onClick: (arg: unknown) => void;
+}
+
+export interface MenuType {
+  label: string;
+  url?: string;
+  childMenu?: MenuType[];
 }
 
 export type PostProps = {

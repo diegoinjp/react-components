@@ -1,18 +1,19 @@
 import React from 'react';
 import { PlaceholderText } from '../utils/consts';
-import { ButtonType } from '../utils/types';
-import Button from './Button';
+import Button, { ButtonProps } from './Button';
 
 export type PanelProps = {
   children?: React.ReactNode;
   p?: number;
+  height?: number;
   title?: string;
-  buttons?: ButtonType[];
+  buttons?: ButtonProps[];
 };
 
 const Panel = ({
   children = PlaceholderText,
   p = 2,
+  height,
   title,
   buttons = [],
 }: PanelProps) => {
@@ -26,15 +27,18 @@ const Panel = ({
         {buttons.map((button, index) => (
           <Button
             key={index}
-            color={button.btnColor}
+            color={button.color}
             onClick={button.onClick}
+            icon={button.icon}
             size="sm">
-            {button.label}
+            {button.children}
           </Button>
         ))}
       </div>
       <div className="uppercase font-bold text-xl">{title}</div>
-      <div className={hasMargin}>{children}</div>
+      <div style={{ maxHeight: `${height}rem` }} className={hasMargin}>
+        {children}
+      </div>
     </div>
   );
 };

@@ -5,6 +5,19 @@ export const BtnColor: { [key: string]: string } = {
   yellow: 'bg-yellow-300 text-black hover:bg-yellow-400',
 };
 
+export const BgColor: { [key: string]: string } = {
+  primary: 'bg-red-400',
+  secondary: 'bg-yellow-300',
+  paper: 'bg-cyan-400',
+  yellow: 'bg-orange-400',
+};
+export const BgHoverColor: { [key: string]: string } = {
+  primary: 'hover:bg-red-200',
+  secondary: 'hover:bg-yellow-200',
+  paper: 'hover:bg-cyan-200',
+  yellow: 'hover:bg-orange-200',
+};
+
 export const BtnSizes: { [key: string]: string } = {
   sm: 'px-3 py-1',
   md: 'px-4 py-2',

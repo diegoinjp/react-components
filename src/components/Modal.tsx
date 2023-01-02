@@ -1,4 +1,5 @@
 import React from 'react';
+import { useKeyPress } from '../hooks/useKeyPress';
 import { NoChildrenText } from '../utils/consts';
 import { ButtonType } from '../utils/types';
 import Button from './Button';
@@ -19,6 +20,11 @@ const Modal = ({
   buttons = [],
 }: ModalProps) => {
   const handleClose = () => setOpen(false);
+  const esc = useKeyPress('Escape');
+
+  if (esc) {
+    setOpen(false);
+  }
 
   return (
     <>
@@ -38,11 +44,11 @@ const Modal = ({
             <div className="self-end flex gap-2">
               {buttons.map((button, index) => (
                 <Button
-                  color={button.btnColor}
+                  color={button.color}
                   key={index}
                   onClick={button.onClick}
                   size="sm">
-                  {button.label}
+                  {button.children}
                 </Button>
               ))}
             </div>
