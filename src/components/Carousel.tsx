@@ -4,13 +4,13 @@ import { PostProps } from '../utils/types';
 export type CarouselProps = {
   /** Content of the carousel */
   posts: PostProps[];
-  /** Height of the carousel */
+  /** Height of the carousel, default height is 20rem */
   height?: number;
-  /** Duration in seconds of the loop */
+  /** Duration in seconds of the loop, default duration is 7 seconds */
   duration?: number;
-  /** Auto play of the slider */
-  // autoPlay?: boolean; TODO: add autoPlay
-  /** Select how many slides will display */
+  /** Auto play of the slider, the carousel with autoplay by default */
+  autoPlay?: boolean; //TODO: add autoPlay
+  /** Select how many slides will display, default number is 5 */
   slideNumber?: number;
 };
 
@@ -21,7 +21,8 @@ const Carousel = ({
   posts,
   height = 20,
   duration = 7,
-  slideNumber = 3,
+  autoPlay = true,
+  slideNumber = 5,
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -32,7 +33,15 @@ const Carousel = ({
     return setCurrentIndex(currentIndex + 1);
   };
 
+  const handlePrevious = () => {
+    setCurrentIndex(prev => (prev - 1 + slideNumber) % slideNumber);
+  };
+  const handleNext = () => {
+    setCurrentIndex(prev => (prev + 1) % slideNumber);
+  };
+
   useEffect(() => {
+    if (!autoPlay) return;
     const interval = setInterval(() => {
       infiniteScroll();
     }, duration * 1000);
@@ -43,7 +52,17 @@ const Carousel = ({
   });
 
   return (
-    <div className="flex flex-nowrap overflow-hidden group">
+    <div className="flex flex-nowrap overflow-hidden group relative">
+      <span
+        onClick={handlePrevious}
+        className="w-10 h-10 absolute rounded-full bg-red-600/90 grid place-items-center top-1/2 left-3 transform -translate-y-1/2 z-10 cursor-pointer">
+        ◀
+      </span>
+      <span
+        onClick={handleNext}
+        className="w-10 h-10 absolute rounded-full bg-red-600/90 grid place-items-center right-3 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
+        ▶
+      </span>
       {posts.map((post, index) => {
         return (
           <div

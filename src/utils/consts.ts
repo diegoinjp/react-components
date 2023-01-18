@@ -6,11 +6,11 @@ export const BtnColor: { [key: string]: string } = {
 };
 
 export const BgColor: { [key: string]: string } = {
-  red: 'bg-red-600 text-white',
-  cyan: 'bg-cyan-400',
-  violet: 'bg-violet-600 text-white',
-  orange: 'bg-orange-400',
-  yellow: 'bg-yellow-300',
+  red: 'bg-red-600 text-white dark:bg-red-600',
+  cyan: 'bg-cyan-400 dark:bg-cyan-400 dark:text-white',
+  violet: 'bg-violet-600 text-white dark:bg-violet-600',
+  orange: 'bg-orange-400 dark:bg-orange-400 dark:text-white',
+  yellow: 'bg-yellow-300 dark:bg-yellow-300 dark:text-white',
 };
 export const BgHoverColor: { [key: string]: string } = {
   red: 'hover:bg-red-500 text-white',

@@ -6,6 +6,7 @@ export type ButtonProps = {
   children?: React.ReactNode;
   color?: ColorType;
   size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
   icon?: React.ReactNode;
   onClick?: (arg: unknown) => void;
 };
@@ -14,6 +15,7 @@ const Button = ({
   children = 'OK',
   color = 'primary',
   size = 'md',
+  type,
   icon,
   onClick,
 }: ButtonProps) => {
@@ -26,6 +28,7 @@ const Button = ({
 
   return (
     <button
+      type={type}
       className={`${BtnColor[color]} ${BtnSizes[size]} rounded`}
       onClick={onClick}>
       {btnCont}

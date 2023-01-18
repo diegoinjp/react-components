@@ -12,6 +12,8 @@ import Button from './components/Button';
 import { BsDownload } from 'react-icons/bs';
 import Navbar from './components/Navbar';
 import useCountRenders from './hooks/useCountRenders';
+import GradientPanel from './components/GradientPanel';
+import TodoList from './components/TodoList';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -77,11 +79,11 @@ function App() {
     },
     {
       label: 'Link 2',
-      url: '/foo',
+      url: '/',
     },
     {
       label: 'Link 3',
-      url: '/bar',
+      url: '/',
     },
   ];
 
@@ -91,17 +93,22 @@ function App() {
         <Navbar menuLinks={menuLinks} color="red" />
         <div className="flex flex-col gap-3">
           <Carousel posts={postsContent} />
-          <Panel
-            title={`Total: ${count}`}
-            buttons={buttons1}
-            tags={
-              <Tags tags={postsContent[1].tags} url={postsContent[1].imgUrl} />
-            }>
-            <div className="flex flex-col gap-3">
-              {PLACEHOLDERTEXT}
-              <Button icon={<BsDownload />}>Download</Button>
-            </div>
-          </Panel>
+          <GradientPanel>
+            <Panel
+              title={`Total: ${count}`}
+              buttons={buttons1}
+              tags={
+                <Tags
+                  tags={postsContent[1].tags}
+                  url={postsContent[1].imgUrl}
+                />
+              }>
+              <div className="flex flex-col gap-3">
+                {PLACEHOLDERTEXT}
+                <Button icon={<BsDownload />}>Download</Button>
+              </div>
+            </Panel>
+          </GradientPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 px-4 md:px-0">
             {postsContent.map((card, index) => {
               return (
@@ -131,8 +138,9 @@ function App() {
         open={openModal2}
         setOpen={setOpenModal2}
         title={`${count} Title`}
-        buttons={buttonsModal2}
-      />
+        buttons={buttonsModal2}>
+        <TodoList />
+      </Modal>
     </main>
   );
 }

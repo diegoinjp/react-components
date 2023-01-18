@@ -46,4 +46,13 @@ export const postsContent: PostProps[] = [
     imgUrl:
       'https://images.unsplash.com/photo-1493780474015-ba834fd0ce2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2284&q=80',
   },
+  {
+    title: 'title6',
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo magni quia quod qui, esse rem ratione modi tempore laboriosam facilis deleniti reiciendis nisi amet repudiandae natus labore! Facere ut suscipit, tenetur illum voluptatum, consequatur dicta voluptas, neque ducimus blanditiis quae!',
+    badge: 'kuina',
+    tags: ['kuina', 'tag', 'badge'],
+    imgUrl:
+      'https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80',
+  },
 ];

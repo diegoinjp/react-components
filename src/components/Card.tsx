@@ -17,7 +17,7 @@ const Card = ({
     <div className="h-[30rem] relative transition group hover:-translate-y-0.5 hover:bg-gray-100 auto-cols-min drop-shadow-sm bg-gray-50 overflow-hidden rounded-md">
       {imgUrl && (
         <img
-          className="w-full h-48 object-cover opacity-60 group-hover:opacity-100"
+          className="w-full h-48 object-cover opacity-80 group-hover:opacity-100"
           src={imgUrl}
         />
       )}

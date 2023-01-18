@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useKeyPress } from '../hooks/useKeyPress';
 import { NoChildrenText } from '../utils/consts';
 import { ButtonType } from '../utils/types';
@@ -22,9 +22,11 @@ const Modal = ({
   const handleClose = () => setOpen(false);
   const esc = useKeyPress('Escape');
 
-  if (esc) {
-    setOpen(false);
-  }
+  useEffect(() => {
+    if (esc) {
+      handleClose();
+    }
+  }, [esc]);
 
   return (
     <>
