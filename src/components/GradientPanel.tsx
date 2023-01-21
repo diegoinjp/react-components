@@ -5,7 +5,7 @@ export interface GradientType {
   p?: number;
 }
 
-export default function GradientPanel({ children, p = 2 }: GradientType) {
+export default function GradientPanel({ children, p = 1 }: GradientType) {
   return (
     <div
       style={{ padding: `${p}rem` }}

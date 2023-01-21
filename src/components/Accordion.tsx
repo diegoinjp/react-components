@@ -1,32 +1,5 @@
 import React, { useState } from 'react';
-
-type AccordionType = {
-  title: string;
-  content: string;
-};
-
-const accordion: AccordionType[] = [
-  {
-    title: 'Accordion1',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt iste iure inventore, magnam maiores deserunt! Iusto est amet optio error animi, aspernatur aliquid tempore recusandae. Eligendi, assumenda harum! Ducimus, dolor?',
-  },
-  {
-    title: 'Accordion2',
-    content:
-      'consectetur adipisicing elit. Incidunt iste iure inventore, magnam maiores deserunt! Iusto est amet optio error animi, aspernatur aliquid tempore recusandae. Eligendi, assumenda harum! Ducimus, dolor?',
-  },
-  {
-    title: 'Accordion3',
-    content:
-      'Lorem ipsum dolor sit amet consecteturiste iure inventore, magnam maiores deserunt! Iusto est amet optio error animi, aspernatur aliquid tempore recusandae. Eligendi, assumenda harum! Ducimus, dolor?',
-  },
-  {
-    title: 'Accordion4',
-    content:
-      'ste iure inventore, magnam maiores deserunt! Iusto est amet optio error animi, aspernatur aliquid tempore recusandae. Eligendi, assumenda harum! Ducimus, dolor?',
-  },
-];
+import { faqItems } from '../api/faq';
 
 function Accordion() {
   const [activeIdx, setActiveIdx] = useState<number>(-1);
@@ -40,8 +13,8 @@ function Accordion() {
   };
 
   return (
-    <div className="w-96 bg-gray-100 rounded border border-gray-300 inline-block">
-      {accordion.map((item, index) => {
+    <div className=" w-full md:w-[30rem] bg-gray-100 rounded border border-gray-300 inline-block">
+      {faqItems.map((item, index) => {
         return (
           <>
             <div

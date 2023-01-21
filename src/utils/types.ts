@@ -22,6 +22,12 @@ export type PostProps = {
   tags?: string[];
   imgUrl?: string;
 };
+
+export type AccordionType = {
+  title: string;
+  content: string;
+};
+
 // export type CardTypes = {
 //   title:
 //   content:
