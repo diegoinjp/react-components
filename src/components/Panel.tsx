@@ -9,6 +9,7 @@ export type PanelProps = {
   title?: string;
   buttons?: ButtonProps[];
   tags?: React.ReactNode;
+  center?: boolean;
 };
 
 const Panel = ({
@@ -18,6 +19,7 @@ const Panel = ({
   title,
   buttons = [],
   tags,
+  center = false,
 }: PanelProps) => {
   const hasTopMargin = buttons.length > 0 && !title ? 'mt-5' : '';
   const hasBottomMargin = tags ? 'mb-7' : '';
@@ -40,8 +42,10 @@ const Panel = ({
       </div>
       <div className="uppercase font-bold text-xl">{title}</div>
       <div
-        style={{ maxHeight: `${height}rem` }}
-        className={`overflow-y-scroll ${hasTopMargin} ${hasBottomMargin}`}>
+        style={{ minHeight: `${height}rem` }}
+        className={`overflow-y-scroll ${hasTopMargin} ${hasBottomMargin} flex ${
+          center && 'justify-center'
+        }`}>
         {children}
       </div>
       <div className="absolute bottom-4 left-6">{tags}</div>

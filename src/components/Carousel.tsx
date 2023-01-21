@@ -12,6 +12,8 @@ export type CarouselProps = {
   autoPlay?: boolean; //TODO: add autoPlay
   /** Select how many slides will display, default number is 5 */
   slideNumber?: number;
+  /** Select if bullets will display, default number is true */
+  bullets?: boolean;
 };
 
 // TODO: onMouseEnter and onMouseLeave should stop the carousel
@@ -23,7 +25,8 @@ const Carousel = ({
   duration = 7,
   autoPlay = true,
   slideNumber = 5,
-}: CarouselProps) => {
+}: // bullets = true,
+CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const infiniteScroll = () => {
@@ -63,6 +66,7 @@ const Carousel = ({
         className="w-10 h-10 absolute rounded-full bg-red-600/90 grid place-items-center right-3 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
         ▶
       </span>
+      {/* <span className="w-3 h-3 absolute rounded-full bg-black/90 grid place-items-center right-1/2 top-3 transform -translate--1/2 z-10 cursor-pointer"></span> */}
       {posts.map((post, index) => {
         return (
           <div

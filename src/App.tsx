@@ -14,6 +14,7 @@ import Navbar from './components/Navbar';
 import useCountRenders from './hooks/useCountRenders';
 import GradientPanel from './components/GradientPanel';
 import TodoList from './components/TodoList';
+import Accordion from './components/Accordion';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -123,6 +124,11 @@ function App() {
               );
             })}
           </div>
+          <GradientPanel>
+            <Panel title="Accordion" center={true}>
+              <Accordion />
+            </Panel>
+          </GradientPanel>
         </div>
       </div>
       <Modal
